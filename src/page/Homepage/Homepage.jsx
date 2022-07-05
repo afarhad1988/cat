@@ -7,6 +7,7 @@ const Homepage = () => {
   const dispatch = useDispatch();
   const [cats, setCats] = useState([]);
   const [loader, setLoader] = useState(true);
+  const [page, setPage] = useState(0);
 
   const addToFavorites = (cat) => {
     dispatch({ type: "ADD_TO_FAVORITES", payload: cat });
@@ -14,19 +15,35 @@ const Homepage = () => {
 
   useEffect(() => {
     axios(
-      "https://api.thecatapi.com/v1/images/search?limit=15&page=10&order=Desc"
+      `https://api.thecatapi.com/v1/images/search?limit=15&page=${
+        page + 1
+      }&order=Desc`
     ).then((res) => {
       setCats(res.data);
       setLoader(false);
     });
-  }, []);
+  }, [page]);
 
   if (loader) {
     return <Spinner />;
   }
   return (
     <div className="container">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div className="pagination">
+        {Array(Math.ceil(10))
+          .fill(0)
+          .map((item, idx) => idx + 1)
+          .map((buttonNum, idx) => (
+            <button
+              key={idx}
+              className="pagination-btn"
+              onClick={() => setPage(idx)}
+            >
+              {idx + 1}
+            </button>
+          ))}
+      </div>
+      <div className="grid grid-cols-2  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {cats.map((cat) => (
           <div
             key={cat.id}
@@ -37,10 +54,9 @@ const Homepage = () => {
               src={cat.url}
               alt="cat"
             />
-            <div onClick={addToFavorites} className="favorite" />
+            <div onClick={() => addToFavorites(cat)} className="favorite" />
           </div>
         ))}
-        <button className="m-auto">...загрузить еще котиков...</button>
       </div>
     </div>
   );

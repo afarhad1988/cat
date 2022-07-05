@@ -25,6 +25,7 @@ header{
 .active{
   background: #1E88E5;
 }
+
 .favorite{
   width: 48px;
   height: 37px;
@@ -49,3 +50,33 @@ header{
   opacity: 1;
 }
 
+.favorite-full{
+  width: 40px;
+  height: 37px;
+  background-image: url('./assets/images/favorites-added.svg');
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  opacity: 0;
+  cursor: pointer;
+  transition: 0.8s;
+}
+
+.cat-card:hover .favorite-full{
+  opacity: 1;
+  transition: 0.8s;
+}
+
+.pagination{
+  display: flex;
+  justify-content: right;
+  margin-bottom: 30px;
+}
+.pagination-btn{
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  background: #1E88E5;
+  color: white;
+}
