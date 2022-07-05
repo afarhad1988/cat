@@ -80,3 +80,47 @@ header{
   background: #1E88E5;
   color: white;
 }
+
+@media (max-width: 768px) {
+  /*577-768*/
+  .container {
+    width: 540px;
+  }
+  .cat-card{
+    width: 237px;
+    height: 192px;
+  }
+  .card-item{
+    display: grid;
+    justify-items: center;
+  }
+  header{
+    width: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  /*320-576*/
+  .container {
+    width: 310px;
+    padding: 0 10px;
+  }
+
+  .cat-card{
+    width: 237px;
+    height: 192px;
+  }
+  .pagination-btn {
+    padding: 6px;
+
+  }
+  .card-item{
+    display: grid;
+    justify-items: center;
+  }
+  header{
+    width: auto;
+    padding: 5px 0;
+  }
+}
+

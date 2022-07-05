@@ -11,7 +11,7 @@ const Favorites = () => {
 
   return (
     <div className="container">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="card-item grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {favorites.length ? (
           favorites.map((cat) => (
             <div

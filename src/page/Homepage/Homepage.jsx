@@ -43,11 +43,11 @@ const Homepage = () => {
             </button>
           ))}
       </div>
-      <div className="grid grid-cols-2  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className=" card-item grid grid-cols-1  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {cats.map((cat) => (
           <div
             key={cat.id}
-            className="cat-card relative w-full h-48 bg-red-400 rounded-lg  flex flex-col justify-center items-center"
+            className="cat-card relative w-full h-48  bg-red-400 rounded-lg  flex flex-col justify-center items-center"
           >
             <img
               className="object-center object-cover  h-full w-full"
